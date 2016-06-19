@@ -27,6 +27,15 @@ int bombs[NUM_BOMBS][4] = {
     {9,9,8,1}
 };
 
+const char * message [] = {   
+    "Military Targets totally destroyed:",
+    "Military Targets partially destroyed:",
+    "Military Targets not affected:",
+    "Civilian Targets totally destroyed:",
+    "Civilian Targets partially destroyed:",
+    "Civilian Targets not affected:",
+};
+
 int* radToArea(int bomb[]){
     int * res = (int *) malloc( sizeof(int) * 5 );
 
@@ -109,7 +118,7 @@ int main(int argc, char const *argv[])
     res = process(targets,(int(*)[5])b_areas); // c es burda de marico y necesita esa conversion
 
     for (i = 0; i < 6; ++i)
-        printf("%d ",res[i]);
+        printf("%s%d\n",message[i],res[i]);
 
 
     free(res);
